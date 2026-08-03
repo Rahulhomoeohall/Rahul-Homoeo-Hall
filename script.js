@@ -39,6 +39,7 @@ console.log("Welcome to Rahul Homoeo Hall Website");
 const appointmentForm = document.getElementById("appointmentForm");
 
 if (appointmentForm) {
+    alert("Script Connected Successfully");
 
 appointmentForm.addEventListener("submit", function(e){
 
