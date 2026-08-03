@@ -1,0 +1,1030 @@
+/* ===========================
+   Rahul Homoeo Hall
+   Professional CSS - Part 1
+=========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Open Sans',sans-serif;
+h1,h2,h3,h4,h5,h6,.logo{
+
+font-family:'Poppins',sans-serif;
+
+}
+background:#f5f7fa;
+color:#333;
+line-height:1.6;
+}
+
+a{
+text-decoration:none;
+}
+
+img{
+max-width:100%;
+}
+
+/* ================= HEADER ================= */
+
+header{
+
+position:sticky;
+top:0;
+z-index:999;
+
+background:#ffffff;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 8%;
+
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+}
+
+.logo{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#0B7A38;
+
+letter-spacing:.5px;
+
+}
+
+/* Navigation */
+
+nav ul{
+
+display:flex;
+
+list-style:none;
+
+gap:25px;
+
+}
+
+nav ul li a{
+
+color:#333;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+nav ul li a:hover{
+
+color:#0B7A38;
+
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+background:linear-gradient(135deg,#0B7A38,#16984d);
+
+padding:90px 8%;
+
+text-align:center;
+
+color:white;
+
+}
+
+.hero h1{
+
+font-size:48px;
+
+margin-bottom:15px;
+
+}
+
+.hero h2{
+
+font-size:28px;
+
+font-weight:normal;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+margin-bottom:15px;
+
+}
+
+/* Buttons */
+
+.hero-buttons{
+
+margin-top:35px;
+
+}
+
+.btn-green{
+
+display:inline-block;
+
+background:white;
+
+color:#0B7A38;
+
+padding:14px 28px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+margin:8px;
+
+transition:.3s;
+
+}
+
+.btn-green:hover{
+
+background:#f2f2f2;
+
+transform:translateY(-2px);
+
+}
+
+.btn-white{
+
+display:inline-block;
+
+border:2px solid white;
+
+color:white;
+
+padding:14px 28px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+margin:8px;
+
+transition:.3s;
+
+}
+
+.btn-white:hover{
+
+background:white;
+
+color:#0B7A38;
+
+}
+
+/* ================= SECTION ================= */
+
+section{
+
+padding:70px 8%;
+
+}
+
+.section-title{
+
+text-align:center;
+
+margin-bottom:45px;
+
+}
+
+.section-title h2{
+
+font-size:34px;
+
+color:#0B7A38;
+
+margin-bottom:10px;
+
+}
+
+.section-title p{
+
+color:#666;
+
+font-size:17px;
+
+}
+/* ===========================
+   PART 2
+   Why Choose | Services | Doctors
+=========================== */
+
+/* Grid */
+
+.why-grid,
+.service-grid,
+.doctor-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+margin-top:30px;
+
+}
+
+/* Cards */
+
+.why-card,
+.service-card,
+.doctor-box{
+
+background:#fff;
+
+padding:30px 25px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+transition:.35s;
+
+cursor:pointer;
+
+}
+
+/* Hover */
+
+.why-card:hover,
+.service-card:hover,
+.doctor-box:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+/* Titles */
+
+.why-card h3,
+.doctor-box h3{
+
+color:#0B7A38;
+
+margin-bottom:15px;
+
+font-size:24px;
+
+}
+
+/* Paragraph */
+
+.why-card p,
+.doctor-box p{
+
+color:#666;
+
+font-size:16px;
+
+}
+
+/* Services */
+
+.service-card{
+
+font-size:20px;
+
+font-weight:bold;
+
+color:#0B7A38;
+
+}
+
+/* Doctor Card */
+
+.doctor-box{
+
+border-top:5px solid #0B7A38;
+
+}
+
+/* Small Animation */
+
+.why-card,
+.service-card,
+.doctor-box{
+
+animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/* ===========================
+   PART 3
+   Contact | Footer | Responsive
+=========================== */
+
+/* Contact Section */
+
+.contact-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:30px;
+
+margin-top:30px;
+
+}
+
+.contact-grid div{
+
+background:#ffffff;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.contact-grid h2{
+
+color:#0B7A38;
+
+margin-bottom:20px;
+
+font-size:28px;
+
+}
+
+.contact-grid p{
+
+font-size:17px;
+
+margin-bottom:12px;
+
+color:#555;
+
+}
+
+/* Footer */
+
+footer{
+
+background:#0B7A38;
+
+color:#fff;
+
+text-align:center;
+
+padding:35px 20px;
+
+margin-top:50px;
+
+}
+
+footer h2{
+
+font-size:30px;
+
+margin-bottom:10px;
+
+}
+
+footer p{
+
+margin:8px 0;
+
+font-size:16px;
+
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+padding:15px;
+
+}
+
+.logo{
+
+margin-bottom:15px;
+
+}
+
+nav ul{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:12px;
+
+}
+
+.hero{
+
+padding:60px 20px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero h2{
+
+font-size:22px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.section-title h2{
+
+font-size:28px;
+
+}
+
+.contact-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.btn-green,
+.btn-white{
+
+display:block;
+
+width:90%;
+
+margin:10px auto;
+
+text-align:center;
+
+}
+
+}
+.doctor-names{
+
+margin:20px 0;
+
+}
+
+.doctor-names h2{
+
+font-size:28px;
+
+font-weight:600;
+
+color:white;
+
+margin:8px 0;
+
+}
+.doctor-names{
+margin:25px 0;
+text-align:center;
+}
+
+.doctor1{
+font-size:36px;
+font-weight:600;
+margin-bottom:12px;
+color:#fff;
+}
+
+.doctor2{
+font-size:32px;
+font-weight:600;
+margin-bottom:6px;
+color:#fff;
+}
+
+.qualification{
+font-size:20px;
+font-weight:500;
+color:#f5f5f5;
+letter-spacing:1px;
+}
+/* ===== Premium Hero ===== */
+
+.hero{
+
+text-align:center;
+
+padding:100px 20px;
+
+}
+
+.hero h1{
+
+font-size:54px;
+
+margin-bottom:30px;
+
+}
+
+.doctor-names h2{
+
+font-size:34px;
+
+font-weight:600;
+
+margin-top:18px;
+
+margin-bottom:5px;
+
+}
+
+.doctor-title{
+
+font-size:18px;
+
+opacity:.9;
+
+margin-bottom:18px;
+
+}
+
+.hero-address{
+
+font-size:20px;
+
+margin-top:25px;
+
+}
+
+.hero-time{
+
+font-size:20px;
+
+margin:15px 0 35px;
+
+font-weight:600;
+
+}
+
+.hero-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+/*==========================
+ WHY CHOOSE
+==========================*/
+
+#why{
+padding:70px 8%;
+background:#f8fafc;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:45px;
+}
+
+.section-title h2{
+font-size:38px;
+color:#0b7a38;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.why-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+}
+
+.why-card{
+
+background:#ffffff;
+
+padding:35px 25px;
+
+border-radius:18px;
+
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+transition:.4s;
+
+}
+
+.why-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.why-card h3{
+
+font-size:24px;
+
+color:#0b7a38;
+
+margin-bottom:15px;
+
+}
+
+.why-card p{
+
+font-size:17px;
+
+line-height:28px;
+
+color:#555;
+
+}
+
+
+/*==========================
+ SERVICES
+==========================*/
+
+#services{
+
+padding:70px 8%;
+
+background:#ffffff;
+
+}
+
+.service-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+gap:25px;
+
+}
+
+.service-card{
+
+background:#0b7a38;
+
+color:white;
+
+padding:35px;
+
+border-radius:15px;
+
+font-size:22px;
+
+font-weight:600;
+
+text-align:center;
+
+transition:.4s;
+
+cursor:pointer;
+
+}
+
+.service-card:hover{
+
+background:#06602d;
+
+transform:scale(1.05);
+
+}
+/*==========================
+ MEET OUR DOCTORS
+==========================*/
+
+#doctors{
+
+padding:80px 8%;
+
+background:#f5f7fa;
+
+}
+
+.doctor-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+margin-top:40px;
+
+}
+
+.doctor-box{
+
+background:#fff;
+
+border-radius:20px;
+
+padding:35px;
+
+text-align:center;
+
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+transition:.4s;
+
+}
+
+.doctor-box:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.doctor-photo{
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+background:#e8f5ec;
+
+margin:0 auto 20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:55px;
+
+}
+
+.doctor-box h3{
+
+font-size:28px;
+
+color:#0B7A38;
+
+margin-bottom:10px;
+
+}
+
+.doctor-box p{
+
+font-size:17px;
+
+color:#555;
+
+line-height:28px;
+
+}
+
+.doctor-btn{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:12px 28px;
+
+background:#0B7A38;
+
+color:#fff;
+
+border-radius:30px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.doctor-btn:hover{
+
+background:#06602d;
+
+}
+/* ===========================
+   PATIENT REVIEWS SECTION
+=========================== */
+
+#reviews{
+
+padding:80px 8%;
+background:#ffffff;
+
+}
+
+.review-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+margin-top:40px;
+
+}
+
+
+.review-card{
+
+background:#f8fafc;
+
+padding:35px 25px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+transition:.4s;
+
+border-top:5px solid #0B7A38;
+
+}
+
+
+.review-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+
+.review-card h3{
+
+color:#0B7A38;
+
+font-size:22px;
+
+margin-bottom:15px;
+
+}
+
+
+.review-card p{
+
+font-size:16px;
+
+color:#555;
+
+line-height:28px;
+
+}
+
+
+.review-stars{
+
+color:#f4b400;
+
+font-size:22px;
+
+margin-bottom:15px;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.review-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+/* ===========================
+   GOOGLE MAP
+=========================== */
+
+#map{
+
+padding:70px 8%;
+background:#f5f7fa;
+
+}
+
+
+.map-container{
+
+width:100%;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+}
+
+
+.map-container iframe{
+
+display:block;
+
+}
+/* ===== Mobile Responsive ===== */
+
+@media (max-width: 768px){
+
+nav ul{
+flex-direction:column;
+text-align:center;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero-buttons{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.service-grid,
+.doctor-grid,
+.review-grid,
+.why-grid,
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.map-container iframe{
+width:100%;
+height:300px;
+}
+
+}
