@@ -1,8 +1,6 @@
-// ==========================
 // Smooth Scroll
-// ==========================
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function (e) {
+  link.addEventListener('click', function(e) {
     e.preventDefault();
 
     const target = document.querySelector(this.getAttribute('href'));
@@ -15,26 +13,20 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// ==========================
 // Sticky Header Shadow
-// ==========================
 window.addEventListener('scroll', () => {
 
   const header = document.querySelector('header');
 
-  if (header) {
-    if (window.scrollY > 30) {
-      header.style.boxShadow = "0 5px 15px rgba(0,0,0,.2)";
-    } else {
-      header.style.boxShadow = "none";
-    }
+  if (window.scrollY > 30) {
+    header.style.boxShadow = "0 5px 15px rgba(0,0,0,.2)";
+  } else {
+    header.style.boxShadow = "none";
   }
 
 });
 
-// ==========================
 // Welcome Message
-// ==========================
 console.log("Welcome to Rahul Homoeo Hall Website");
 
 // ==========================
@@ -46,7 +38,7 @@ if (appointmentForm) {
 
   alert("Script Connected Successfully");
 
-  appointmentForm.addEventListener("submit", async function (e) {
+  appointmentForm.addEventListener("submit", function(e) {
 
     e.preventDefault();
 
@@ -57,42 +49,9 @@ if (appointmentForm) {
       return;
     }
 
-    const data = {
-      name: document.getElementById("name").value,
-      mobile: mobile,
-      age: document.getElementById("age").value,
-      gender: document.getElementById("gender").value,
-      doctor: document.getElementById("doctor").value,
-      date: document.getElementById("date").value,
-      time: document.getElementById("time").value,
-      problem: document.getElementById("problem").value
-    };
+    alert("Appointment Booked Successfully");
 
-    try {
-
-      const response = await fetch("https://script.google.com/macros/s/AKfycbxw3ROB6GYNcy8pxoCJHJ6jPFysciUyxMF7FQ8eNIfyv0lODs7CfRir67C61XxJKC1i8g/exec {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
-
-      if (!response.ok) {
-        throw new Error("Request Failed");
-      }
-
-      alert("Appointment Booked Successfully");
-
-      window.location.href = "success.html";
-
-    } catch (error) {
-
-      alert("Booking Failed. Please Try Again.");
-
-      console.error(error);
-
-    }
+    window.location.href = "success.html";
 
   });
 
