@@ -1,6 +1,8 @@
+// ==========================
 // Smooth Scroll
+// ==========================
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function(e) {
+  link.addEventListener('click', function (e) {
     e.preventDefault();
 
     const target = document.querySelector(this.getAttribute('href'));
@@ -13,20 +15,26 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
+// ==========================
 // Sticky Header Shadow
+// ==========================
 window.addEventListener('scroll', () => {
 
   const header = document.querySelector('header');
 
-  if (window.scrollY > 30) {
-    header.style.boxShadow = "0 5px 15px rgba(0,0,0,.2)";
-  } else {
-    header.style.boxShadow = "none";
+  if (header) {
+    if (window.scrollY > 30) {
+      header.style.boxShadow = "0 5px 15px rgba(0,0,0,.2)";
+    } else {
+      header.style.boxShadow = "none";
+    }
   }
 
 });
 
+// ==========================
 // Welcome Message
+// ==========================
 console.log("Welcome to Rahul Homoeo Hall Website");
 
 // ==========================
@@ -36,9 +44,7 @@ const appointmentForm = document.getElementById("appointmentForm");
 
 if (appointmentForm) {
 
-  alert("Script Connected Successfully");
-
-  appointmentForm.addEventListener("submit", function(e) {
+  appointmentForm.addEventListener("submit", function (e) {
 
     e.preventDefault();
 
