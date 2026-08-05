@@ -40,7 +40,11 @@ console.log("Welcome to Rahul Homoeo Hall Website");
 // ==========================
 // Appointment Form
 // ==========================
-appointmentForm.addEventListener("submit", async function (e) {
+const appointmentForm = document.getElementById("appointmentForm");
+
+if (appointmentForm) {
+
+  appointmentForm.addEventListener("submit", async function (e) {
 
     e.preventDefault();
 
@@ -51,5 +55,31 @@ appointmentForm.addEventListener("submit", async function (e) {
       return;
     }
 
-alert("Appointment Booked Successfully");
-window.location.href = "success.html";
+    const data = {
+      name: document.getElementById("name").value,
+      mobile: mobile,
+      age: document.getElementById("age").value,
+      gender: document.getElementById("gender").value,
+      doctor: document.getElementById("doctor").value,
+      problem: document.getElementById("problem").value,
+      date: document.getElementById("date").value,
+      time: document.getElementById("time").value
+    };
+
+    try {
+
+      const response = await fetch("https://script.google.com/macros/s/AKfycbxw3ROB6GYNcy8pxoCJHJ6jPFysciUyxMF7FQ8eNIfyv0lODs7CfRir67C61XxJKC1i8g/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        throw new Error("Request Failed");
+      }
+
+      alert("Appointment Booked Successfully");
+
+      window.location.href = "success.html";
