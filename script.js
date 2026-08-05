@@ -70,7 +70,7 @@ if (appointmentForm) {
 
     try {
 
-      const response = await fetch("https://script.google.com/macros/s/AKfycbz9_nOfDFcZaoQaAl0BKC9tEOPFwUvDEGQ71XGAqF0eUL3MjgZ6cRPww9YkXlIH8u0QYA/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbxw3ROB6GYNcy8pxoCJHJ6jPFysciUyxMF7FQ8eNIfyv0lODs7CfRir67C61XxJKC1i8g/exec {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
