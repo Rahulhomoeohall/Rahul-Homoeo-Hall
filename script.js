@@ -1,4 +1,4 @@
-// Smooth Scroll
+// Smooth Scroll (पेज को आराम से स्क्रॉल करने के लिए)
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
@@ -9,7 +9,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// Sticky Header Shadow
+// Sticky Header Shadow (स्क्रॉल करने पर हेडर में शैडो लाने के लिए)
 window.addEventListener('scroll', () => {
   const header = document.querySelector('header');
   if (header) {
@@ -23,43 +23,47 @@ window.addEventListener('scroll', () => {
 
 console.log("Welcome to Rahul Homoeo Hall Website");
 
-// Appointment Form
+// Appointment Form Logic (अपॉइंटमेंट फॉर्म का काम यहाँ से शुरू है)
 const appointmentForm = document.getElementById("appointmentForm");
 
 if (appointmentForm) {
   appointmentForm.addEventListener("submit", function(e) {
     e.preventDefault();
 
+    // फॉर्म से मोबाइल नंबर निकालना
     const mobileValue = document.getElementById("mobile").value.trim();
 
+    // मोबाइल नंबर चेक करना कि वह 10 अंक का है या नहीं
     if (mobileValue.length !== 10 || isNaN(mobileValue)) {
       alert("Enter Valid 10 Digit Mobile Number");
       return;
     }
 
+    // सबमिट बटन को थोड़ी देर के लिए बंद करना
     const submitBtn = appointmentForm.querySelector('button[type="submit"]');
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.innerText = "Booking...";
     }
 
-    // ⚠️ यहाँ उद्धरण चिह्नों "" के बीच अपना कॉपी किया हुआ नया Web App URL डालें
-    const WEB_APP_URL = "https://google.com"; 
+    // आपका नया Google Script URL (यहाँ पहले से जुड़ चुका है)
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbztSIamhBzOpEiQ6fALf3mYWJO_PDU3CLC3zZX1GUnHLX_4XxZFFMX6o6LUc1yhf7FozQ/exec"; 
 
-    // डेटा को सुरक्षित फॉर्म फॉर्मेट में तैयार करना (CORS बाईपास करने के लिए)
+    // डेटा को सुरक्षित फॉर्म फॉर्मेट में तैयार करना (CORS ब्लॉकिंग रोकने के लिए)
     const params = new URLSearchParams();
     params.append("mobile", mobileValue);
 
+    // Google Script को डेटा भेजना
     fetch(WEB_APP_URL, {
       method: "POST",
-      mode: "no-cors", // ब्राउज़र की ब्लॉकिंग को रोकने के लिए
+      mode: "no-cors", 
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       body: params.toString()
     })
     .then(() => {
-      // no-cors मोड में रिस्पॉन्स डायरेक्ट सक्सेस माना जाता है और डेटा शीट में चला जाता है
+      // डेटा शीट में पहुँचने के बाद यूजर को सक्सेस दिखाना
       alert("Appointment Booked Successfully");
       window.location.href = "success.html";
     })
