@@ -42,16 +42,46 @@ if (appointmentForm) {
 
     e.preventDefault();
 
-    const mobile = document.getElementById("mobile").value.trim();
+    const mobileValue = document.getElementById("mobile").value.trim();
 
-    if (mobile.length !== 10 || isNaN(mobile)) {
+    if (mobileValue.length !== 10 || isNaN(mobileValue)) {
       alert("Enter Valid 10 Digit Mobile Number");
       return;
     }
 
-    alert("Appointment Booked Successfully");
+    const submitBtn = appointmentForm.querySelector('button[type="submit"]');
+    if(submitBtn) submitBtn.disabled = true;
 
-    window.location.href = "success.html";
+    // Fixed Web App URL Added
+    const WEB_APP_URL = "https://google.com"; 
+
+    const formData = {
+      mobile: mobileValue
+    };
+
+    fetch(WEB_APP_URL, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "text/plain"
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(data => {
+      alert("Appointment Booked Successfully");
+      window.location.href = "success.html";
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Booking Failed: Server Connection Error");
+      if(submitBtn) submitBtn.disabled = false;
+    });
 
   });
 
