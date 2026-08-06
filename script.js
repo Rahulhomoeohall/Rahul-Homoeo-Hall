@@ -29,46 +29,53 @@ const appointmentForm = document.getElementById("appointmentForm");
 if (appointmentForm) {
   appointmentForm.addEventListener("submit", function(e) {
     e.preventDefault();
+    e.stopPropagation();
 
-    const mobileValue = document.getElementById("mobile").value.trim();
+    const mobileInput = document.getElementById("mobile");
+    if (!mobileInput) {
+      alert("Error: Mobile input field not found!");
+      return false;
+    }
+
+    const mobileValue = mobileInput.value.trim();
 
     if (mobileValue.length !== 10 || isNaN(mobileValue)) {
       alert("Enter Valid 10 Digit Mobile Number");
-      return;
+      return false;
     }
 
     const submitBtn = appointmentForm.querySelector('button[type="submit"]');
-    if(submitBtn) submitBtn.disabled = true;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Booking..."; 
+    }
 
-    https://script.google.com/macros/s/AKfycbxKHP-ciJ_N0Vn1kY2guIelACWD8Q5lv-y6hvAFlsbQtEUFLd5lfcbhU2RPmJjMn87qkw/exec
     const WEB_APP_URL = "https://google.com"; 
 
     const formData = { mobile: mobileValue };
 
     fetch(WEB_APP_URL, {
       method: "POST",
-      mode: "cors",
+      mode: "no-cors", 
       redirect: "follow",
       headers: {
         "Content-Type": "text/plain"
       },
       body: JSON.stringify(formData)
     })
-    .then(response => response.json())
-    .then(data => {
-      if (data.status === "success") {
-        alert("Appointment Booked Successfully");
-        window.location.href = "success.html";
-      } else {
-        alert("Booking Failed: " + data.error);
-        if(submitBtn) submitBtn.disabled = false;
-      }
+    .then(() => {
+      alert("Appointment Booked Successfully");
+      window.location.href = "success.html";
     })
     .catch(error => {
-      console.error("Error:", error);
-      alert("Booking Failed: Server Connection Error");
-      if(submitBtn) submitBtn.disabled = false;
+      console.error("Fetch Error:", error);
+      alert("Booking Failed: Network Error");
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit";
+      }
     });
 
+    return false; 
   });
 }
