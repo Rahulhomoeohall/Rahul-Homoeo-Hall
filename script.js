@@ -52,7 +52,7 @@ if (appointmentForm) {
     const submitBtn = appointmentForm.querySelector('button[type="submit"]');
     if(submitBtn) submitBtn.disabled = true;
 
-    // Fixed Web App URL Added
+  https://script.google.com/macros/s/AKfycbz_CXGhh1cRbgR1Dmz6nCT9G9XaLtaIiiSsdgay2rT4gSEYmW3iij-I-D553D76nYtNtg/exec
     const WEB_APP_URL = "https://google.com"; 
 
     const formData = {
@@ -74,8 +74,13 @@ if (appointmentForm) {
       return response.json();
     })
     .then(data => {
-      alert("Appointment Booked Successfully");
-      window.location.href = "success.html";
+      if (data.status === "success") {
+        alert("Appointment Booked Successfully");
+        window.location.href = "success.html";
+      } else {
+        alert("Booking Failed: " + data.error);
+        if(submitBtn) submitBtn.disabled = false;
+      }
     })
     .catch(error => {
       console.error("Error:", error);
