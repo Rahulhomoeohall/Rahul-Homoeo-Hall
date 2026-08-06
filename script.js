@@ -29,53 +29,48 @@ const appointmentForm = document.getElementById("appointmentForm");
 if (appointmentForm) {
   appointmentForm.addEventListener("submit", function(e) {
     e.preventDefault();
-    e.stopPropagation();
 
-    const mobileInput = document.getElementById("mobile");
-    if (!mobileInput) {
-      alert("Error: Mobile input field not found!");
-      return false;
-    }
-
-    const mobileValue = mobileInput.value.trim();
+    const mobileValue = document.getElementById("mobile").value.trim();
 
     if (mobileValue.length !== 10 || isNaN(mobileValue)) {
       alert("Enter Valid 10 Digit Mobile Number");
-      return false;
+      return;
     }
 
     const submitBtn = appointmentForm.querySelector('button[type="submit"]');
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerText = "Booking..."; 
+      submitBtn.innerText = "Booking...";
     }
 
+    // ⚠️ यहाँ उद्धरण चिह्नों "" के बीच अपना कॉपी किया हुआ नया Web App URL डालें
     const WEB_APP_URL = "https://google.com"; 
 
-    const formData = { mobile: mobileValue };
+    // डेटा को सुरक्षित फॉर्म फॉर्मेट में तैयार करना (CORS बाईपास करने के लिए)
+    const params = new URLSearchParams();
+    params.append("mobile", mobileValue);
 
     fetch(WEB_APP_URL, {
       method: "POST",
-      mode: "no-cors", 
-      redirect: "follow",
+      mode: "no-cors", // ब्राउज़र की ब्लॉकिंग को रोकने के लिए
       headers: {
-        "Content-Type": "text/plain"
+        "Content-Type": "application/x-www-form-urlencoded"
       },
-      body: JSON.stringify(formData)
+      body: params.toString()
     })
     .then(() => {
+      // no-cors मोड में रिस्पॉन्स डायरेक्ट सक्सेस माना जाता है और डेटा शीट में चला जाता है
       alert("Appointment Booked Successfully");
       window.location.href = "success.html";
     })
     .catch(error => {
-      console.error("Fetch Error:", error);
-      alert("Booking Failed: Network Error");
+      console.error("Error:", error);
+      alert("Booking Failed: Server Error");
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerText = "Submit";
       }
     });
 
-    return false; 
   });
 }
