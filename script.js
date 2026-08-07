@@ -1,4 +1,4 @@
-// Smooth Scroll (पेज को आराम से स्क्रॉल करने के लिए)
+// Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
@@ -9,7 +9,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// Sticky Header Shadow (स्क्रॉल करने पर हेडर में शैडो लाने के लिए)
+// Sticky Header Shadow
 window.addEventListener('scroll', () => {
   const header = document.querySelector('header');
   if (header) {
@@ -23,47 +23,42 @@ window.addEventListener('scroll', () => {
 
 console.log("Welcome to Rahul Homoeo Hall Website");
 
-// Appointment Form Logic (अपॉइंटमेंट फॉर्म का काम यहाँ से शुरू है)
+// Appointment Form Logic
 const appointmentForm = document.getElementById("appointmentForm");
 
 if (appointmentForm) {
   appointmentForm.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    // फॉर्म से मोबाइल नंबर निकालना
-    const mobileValue = document.getElementById("mobile").value.trim();
+    const mobileInput = document.getElementById("mobile");
+    const mobileValue = mobileInput ? mobileInput.value.trim() : "";
 
-    // मोबाइल नंबर चेक करना कि वह 10 अंक का है या नहीं
     if (mobileValue.length !== 10 || isNaN(mobileValue)) {
       alert("Enter Valid 10 Digit Mobile Number");
       return;
     }
 
-    // सबमिट बटन को थोड़ी देर के लिए बंद करना
     const submitBtn = appointmentForm.querySelector('button[type="submit"]');
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.innerText = "Booking...";
     }
 
-    // आपका नया Google Script URL (यहाँ पहले से जुड़ चुका है)
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyM0n3UgnJJBUvBYYKTVeVtIswDtn7gLuS_nh8lppBBs3P9EmVP7Xh-c9wkux5ridGJzg/exec"; 
+    // ⚠️ यहाँ "" के बीच अपना ऊपर कॉपी किया हुआ नया Web App URL पेस्ट करें
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxx057ZmXcJOwcUgqDUNJgXn3OSEaivziMTREb5riDZYcBuXkKNeGryYWuFymYZ4qHV1A/exec"; 
 
-    // डेटा को सुरक्षित फॉर्म फॉर्मेट में तैयार करना (CORS ब्लॉकिंग रोकने के लिए)
-    const params = new URLSearchParams();
-    params.append("mobile", mobileValue);
+    const formDataInstance = new FormData(appointmentForm);
+    const params = new URLSearchParams(formDataInstance);
 
-    // Google Script को डेटा भेजना
     fetch(WEB_APP_URL, {
       method: "POST",
-      mode: "no-cors", 
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       body: params.toString()
     })
     .then(() => {
-      // डेटा शीट में पहुँचने के बाद यूजर को सक्सेस दिखाना
       alert("Appointment Booked Successfully");
       window.location.href = "success.html";
     })
