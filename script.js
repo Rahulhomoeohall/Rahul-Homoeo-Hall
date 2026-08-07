@@ -47,7 +47,7 @@ if (appointmentForm) {
     }
 
     // आपका नया Google Script URL (यहाँ पहले से जुड़ चुका है)
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbztSIamhBzOpEiQ6fALf3mYWJO_PDU3CLC3zZX1GUnHLX_4XxZFFMX6o6LUc1yhf7FozQ/exec"; 
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyM0n3UgnJJBUvBYYKTVeVtIswDtn7gLuS_nh8lppBBs3P9EmVP7Xh-c9wkux5ridGJzg/exec"; 
 
     // डेटा को सुरक्षित फॉर्म फॉर्मेट में तैयार करना (CORS ब्लॉकिंग रोकने के लिए)
     const params = new URLSearchParams();
