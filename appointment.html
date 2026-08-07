@@ -50,9 +50,11 @@ Fill the details below.
 
 <label>Patient Name</label>
 
+<!-- name="name" जोड़ा गया -->
 <input
 type="text"
 id="name"
+name="name"
 placeholder="Enter Full Name"
 required>
 
@@ -63,9 +65,11 @@ required>
 
 <label>Mobile Number</label>
 
+<!-- name="mobile" जोड़ा गया -->
 <input
 type="tel"
 id="mobile"
+name="mobile"
 maxlength="10"
 placeholder="10 Digit Mobile Number"
 required>
@@ -77,9 +81,11 @@ required>
 
 <label>Age</label>
 
+<!-- name="age" जोड़ा गया -->
 <input
 type="number"
 id="age"
+name="age"
 min="1"
 max="120"
 required>
@@ -91,13 +97,14 @@ required>
 
 <label>Gender</label>
 
-<select id="gender">
+<!-- name="gender" जोड़ा गया -->
+<select id="gender" name="gender">
 
-<option>Male</option>
+<option value="Male">Male</option>
 
-<option>Female</option>
+<option value="Female">Female</option>
 
-<option>Other</option>
+<option value="Other">Other</option>
 
 </select>
 
@@ -108,11 +115,12 @@ required>
 
 <label>Select Doctor</label>
 
-<select id="doctor">
+<!-- name="doctor" जोड़ा गया -->
+<select id="doctor" name="doctor">
 
-<option>Dr. Shiv Prasad</option>
+<option value="Dr. Shiv Prasad">Dr. Shiv Prasad</option>
 
-<option>Dr. Rahul Bhardwaj (BHMS)</option>
+<option value="Dr. Rahul Bhardwaj (BHMS)">Dr. Rahul Bhardwaj (BHMS)</option>
 
 </select>
 
@@ -123,9 +131,11 @@ required>
 
 <label>Appointment Date</label>
 
+<!-- name="date" जोड़ा गया -->
 <input
 type="date"
 id="date"
+name="date"
 required>
 
 </div>
@@ -135,20 +145,21 @@ required>
 
 <label>Preferred Time</label>
 
-<select id="time">
+<!-- name="time" जोड़ा गया -->
+<select id="time" name="time">
 
-<option>08:00 AM</option>
-<option>09:00 AM</option>
-<option>10:00 AM</option>
-<option>11:00 AM</option>
-<option>12:00 PM</option>
-<option>01:00 PM</option>
-<option>02:00 PM</option>
-<option>03:00 PM</option>
-<option>04:00 PM</option>
-<option>05:00 PM</option>
-<option>06:00 PM</option>
-<option>07:00 PM</option>
+<option value="08:00 AM">08:00 AM</option>
+<option value="09:00 AM">09:00 AM</option>
+<option value="10:00 AM">10:00 AM</option>
+<option value="11:00 AM">11:00 AM</option>
+<option value="12:00 PM">12:00 PM</option>
+<option value="01:00 PM">01:00 PM</option>
+<option value="02:00 PM">02:00 PM</option>
+<option value="03:00 PM">03:00 PM</option>
+<option value="04:00 PM">04:00 PM</option>
+<option value="05:00 PM">05:00 PM</option>
+<option value="06:00 PM">06:00 PM</option>
+<option value="07:00 PM">07:00 PM</option>
 
 </select>
 
@@ -159,9 +170,11 @@ required>
 
 <label>Problem</label>
 
+<!-- name="problem" जोड़ा गया -->
 <textarea
 
 id="problem"
+name="problem"
 
 rows="5"
 
